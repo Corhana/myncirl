@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Nosey Movie Reviews</title>
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="images/fav-icon.png" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!---start-click-drop-down-menu---->
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+        <!----start-dropdown-->
+         <script type="text/javascript">
+			var $ = jQuery.noConflict();
+				$(function() {
+					$('#activator').click(function(){
+						$('#box').animate({'top':'0px'},500);
+					});
+					$('#boxclose').click(function(){
+					$('#box').animate({'top':'-700px'},500);
+					});
+				});
+				$(document).ready(function(){
+				//Hide (Collapse) the toggle containers on load
+				$(".toggle_container").hide(); 
+				//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+				$(".trigger").click(function(){
+					$(this).toggleClass("active").next().slideToggle("slow");
+						return false; //Prevent the browser jump to the link anchor
+				});
+									
+			});
+		</script>
+        <!----//End-dropdown--->
+	</head>
+	<body>
+		<!---start-wrap---->
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="index.html"><img src="images/39-Logos.png" title="Nosey Movie Reviews" /></a>
+				</div>
+				<div class="nav-icon">
+					 <a href="#" class="right_bt" id="activator"><span> </span> </a>
+				</div>
+				 <div class="box" id="box">
+					 <div class="box_content">        					                         
+						<div class="box_content_center">
+						 	<div class="form_content">
+								<div class="menu_box_list">
+									<ul>
+										<li><a href="index.html"><span>home</span></a></li>
+										<li><a href="movie_list.html#"><span>Movie List</span></a></li>
+										<li><a href="about.html#"><span>About</span></a></li>
+										<li><a href="contact.html"><span>Contact</span></a></li>
+										<div class="clear"> </div>
+									</ul>
+								</div>
+								<a class="boxclose" id="boxclose"> <span> </span></a>
+							</div>                                  
+						</div> 	
+					</div> 
+				</div>       	  
+							<div class="top-searchbar">
+					<form action="http://www.rottentomatoes.com/search/" target="_blank">
+		                <input id="autocomplete" type="text" placeholder="Movie name" name="search"><input type="submit" value="" />
+		                <span class="loading"></span>
+	                </form>
+	   	<script>
+		/*
+		 * jQuery UI Autocomplete: Custom HTML in Dropdown
+		 * http://salman-w.blogspot.com/2013/12/jquery-ui-autocomplete-examples.html
+		 */
+		$(function() {
+			$("#autocomplete").autocomplete({
+				delay: 500,
+				minLength: 3,
+				source: function(request, response) {
+					$.getJSON("http://api.rottentomatoes.com/api/public/v1.0/movies.json?callback=?", {
+						// do not copy the api key; get your own at developer.rottentomatoes.com
+						apikey: "a63f02343a64b09623576785234aa40a",
+						q: request.term,
+						page_limit: 10
+					}, function(data) {
+						// data is an array of objects and must be transformed for autocomplete to use
+						var array = data.error ? [] : $.map(data.movies, function(m) {
+							return {
+								label: m.title,
+								year: m.year,
+								cast: m.abridged_cast.slice(0, 3).map(function(a) { return a.name; }).join(", "),
+								rating: m.ratings.critics_score === -1 ? null : m.ratings.critics_score,
+								icon: m.ratings.critics_score === -1 ? null : m.ratings.critics_rating.toLowerCase().replace(/\s/g, "_"),
+								url: m.links.alternate
+							};
+						});
+						response(array);
+					});
+				},
+				focus: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+				},
+				select: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+					// navigate to the selected item's url
+					window.open(ui.item.url);
+				}
+			}).data("ui-autocomplete")._renderItem = function(ul, item) {
+				var $a = $("<a></a>");
+				$("<span class='m-year'></span>").text(item.year).appendTo($a);
+				$("<span class='m-name'></span>").text(item.label).appendTo($a);
+				$("<span class='m-cast'></span>").text(item.cast).appendTo($a);
+				if (item.rating && item.icon) {
+					var $tm = $("<span class='rt-main'>Rotten Tomatoes<sup>&reg;</sup> Score<br>Tomatometer<sup>&reg;</sup><br></span>").appendTo($a);
+					$("<span class='rt-ico'></span>").addClass(item.icon).appendTo($tm);
+					$("<span class='rt-val'></span>").text(item.rating + "%").appendTo($tm);
+					$("<span class='rt-bar'></span>").addClass(item.icon).appendTo($tm).append("<span style='width: " + item.rating + "%;'></span>");
+				}
+				return $("<li></li>").append($a).appendTo(ul);
+			};
+		});
+	</script>
+				</div>
+				<div class="userinfo">
+					<div class="user">
+						<ul>
+							<li><a href="#"><img src="images/user-pic.png" title="user-name" /><span>User Login</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---//End-header---->
+		<!---start-content---->
+		<div class="content">
+			<div class="wrap">
+			<div class="single-page">
+							<div class="single-page-artical">
+								<div class="artical-content">
+									<img src="images/1-.jpg" title="banner1">
+									<h3>Judy Johnson<a href="#"></a></h3>
+									<p>Online Editor at Get The Gloss & Freelance Journalist
+Managing Editor at Get the Gloss by day and a freelance journalist for online and print by night. I've got plenty of web experience gained through various freelance and full time roles, print experience in writing for Expert movie reviews and a slight addiction to Twitter. I've now worked in two startups and blogged separately for others, so I'm used to juggling plenty of tasks; I'm an online editor, production editor, journalist, copywriter and sub-editor in one. My focus is beauty - particularly sensitive skin which I now have a regular column on for Get the Gloss - but I'm as happy writing about makeup as I am soaps (the TV kind), festivals, films, fitness, clubs and bars, dating and more - women's lifestyle is my general umbrella. I have a good understanding of SEO, can quickly learn a CMS inside out, have a basic knowledge of HTML, and have a good knowledge of Photoshop and Dreamweaver. I also have experience in PR, social networking and editing online newsletters.</p>
+									<p class="para2"></p> 
+								    </div>
+								    <div class="artical-links">
+		  						 	<ul>
+
+		  						 		<li><button onclick="commFunction()"><img src="images/blog-icon4.png" title="Lables"><span>View User Comments</span></button></li>
+		  						 	</ul>
+		  						 </div>
+		  						 <div class="share-artical">
+		  						 	<ul>
+		  						 		<li><a href="#"><img src="images/facebooks.png" title="facebook">Facebook</a></li>
+		  						 		<li><a href="#"><img src="images/twiter.png" title="Twitter">Twiiter</a></li>
+		  						 		<li><a href="#"><img src="images/google+.png" title="google+">Google+</a></li>
+		  						 		<li><a href="#"><img src="images/rss.png" title="rss">Rss</a></li>
+		  						 	</ul>
+		  						 </div>
+		  						 <div class="clear"> </div>
+							</div>
+							
+						 </div>
+		</div>
+		<!----start-footer--->
+		<div class="footer">
+
+		</div>
+		<!----//End-footer--->
+		<!---//End-wrap---->
+	</body>
+</html>
+

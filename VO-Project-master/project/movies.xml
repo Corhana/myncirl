@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movies>
+	<movie>
+		<User_code>GAB</User_code>
+		<Movie_Name>Inside Out</Movie_Name>
+		<Comments>[Inside Out] converts complex concepts -- like memory, subconcious, dreams and imagination -- into a visual game, a psychology lesson for both children and adults.</Comments>
+		<Genre>Animation</Genre>
+	</movie>
+	<movie>
+		<User_code>VAL</User_code>
+		<Movie_Name>The Revenant</Movie_Name>
+		<Comments>The Revenant is among the truly great films of 2015, and is Alejandro GonzÃ¡lez IÃ±Ã¡rritu's greatest film... by the end you share in the characters' exhaustion of heart and soul, and perhaps in their glimpse at something infinite, beautiful, and terrifying.</Comments>
+		<Genre>Thriller</Genre>
+	</movie>
+	<movie>
+		<User_code>GAB</User_code>
+		<Movie_Name>Crimson Peak</Movie_Name>
+		<Comments>The story quickly grew predictable and bland, and the design of the ghosts and the role they played in the story left me feeling disappointed.</Comments>
+		<Genre>Thriller</Genre>
+	</movie>
+	<movie>
+		<User_code>VAL</User_code>
+		<Movie_Name>In The Heart of the Sea</Movie_Name>
+		<Comments>Warner Bros. would have been better off sticking with the film's original March release date and selling it as a horror movie.</Comments>
+		<Genre>Drama/Fantasy</Genre>
+	</movie>
+	<movie>
+		<User_code>GAB</User_code>
+		<Movie_Name>The Man from Uncle</Movie_Name>
+		<Comments>The re-invention might have been better as straight-up thriller. More story and less comedy fails would have helped.</Comments>
+		<Genre>Action/Comedy</Genre>
+	</movie>
+
+</movies>

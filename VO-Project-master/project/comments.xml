@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+<channel>
+<name>Gabriel Olariu</name>
+<email>gabriel@example.com</email>
+<review>I know half of you half as much as I would like, and I like half of you half as much as you deserve.
+Any changes made in the xml file should be posted as comments.</review>
+<language>Zarconian</language>
+
+<insideout>
+<name>Kristian Harloff</name>
+<email>gabriel@example.com</email>
+<review>It's more than just a return to form for Pixar; "Inside Out" might be one the best films they've ever made.</review>
+</insideout>
+
+<insideout>
+<name>Edaward Lawrenson</name>
+<email>gabriel@example.com</email>
+<review>A melancholy minor masterpiece of dreamy originality, Inside Out is among Pixar's finest.</review>
+</insideout>
+
+<insideout>
+<name>Irene Crespo</name>
+<email>gabriel@example.com</email>
+<review>[Inside Out] converts complex concepts -- like memory, subconcious, dreams and imagination -- into a visual game, a psychology lesson for both children and adults.</review>
+</insideout>
+
+<heartofsea>
+<name>Lou Lume</name>
+<email>gabriel@example.com</email>
+<review>Warner Bros. would have been better off sticking with the film's original March release date and selling it as a horror movie.</review>
+</heartofsea>
+
+<heartofsea>
+<name>Antony Lane</name>
+<email>gabriel@example.com</email>
+<review>If you want a Ron Howard movie about a man obsessed with a creature from the deep, "In the Heart of the Sea," sadly, is not the place to start. Try "Splash."</review>
+</heartofsea>
+
+<heartofsea>
+<name>Violet Levoit</name>
+<email>gabriel@example.com</email>
+<review>Director Ron Howard has created a maritime redux of his other explorers' epic, Apollo 13; both of the films are about men at the mercy of technologies that help them traverse dangerous places.</review>
+</heartofsea>
+
+<crimsonpeak>
+<name>Beth Acomando</name>
+<email>gabriel@example.com</email>
+<review>The story quickly grew predictable and bland, and the design of the ghosts and the role they played in the story left me feeling disappointed.</review>
+</crimsonpeak>
+
+<crimsonpeak>
+<name>Margot Harison</name>
+<email>gabriel@example.com</email>
+<review>Crimson Peak is the perfect film for that small subgroup of moviegoers that doesn't see shivers and manic giggling as incompatible.</review>
+</crimsonpeak>
+
+<crimsonpeak>
+<name>Stuart Klawans</name>
+<email>gabriel@example.com</email>
+<review>I think film culture would be much poorer if it looked away from this deliciously mordant work by del Toro, one of the few writer-directors today who don't just craft images but think in them.</review>
+</crimsonpeak>
+
+<manfromuncle>
+<name>Alex Abatos</name>
+<email>gabriel@example.com</email>
+<review>The Man From U.N.C.L.E. is not the action movie of the summer -- but it's the one I enjoyed the most.</review>
+</manfromuncle>
+
+<manfromuncle>
+<name>Paul Charles</name>
+<email>gabriel@example.com</email>
+<review>The re-invention might have been better as straight-up thriller. More story and less comedy fails would have helped.</review>
+</manfromuncle>
+
+<manfromuncle>
+<name>Robert W. Butler</name>
+<email>gabriel@example.com</email>
+<review>The main problem with The Man From U.N.C.L.E. is its tone. We can't take this stuff seriously, yet Ritchie misses all sorts of opportunities to make the movie fun. The result isn't particularly satisfying as either adventure or comedy.</review>
+</manfromuncle>
+
+<bridgeOfSpies>
+<name>Rich Clinche</name>
+<email>gabriel@example.com</email>
+<review>Steven Spielberg takes on the Cold War with a stately, sentimental thriller that gurgles along with quiet intensity, only occasionally finding a real spark of energy.</review>
+</bridgeOfSpies>
+
+<bridgeOfSpies>
+<name>Rob Carnevale</name>
+<email>gabriel@example.com</email>
+<review>Steven Spielberg uncovers another important chapter in American [and world] history with spy drama Bridge of Spies, which grips by virtue of its continued relevance today and thanks to two riveting performances from Tom Hanks and Mark Rylance.</review>
+</bridgeOfSpies>
+
+<bridgeOfSpies>
+<name>Allan Hunter</name>
+<email>gabriel@example.com</email>
+<review>A mixture of thriller, courtroom drama and history lesson, Bridge Of Spies makes for a satisfying, entertaining movie. Jimmy Stewart and Gary Cooper would be proud.</review>
+</bridgeOfSpies>
+
+<revenant>
+<name>David Edelstein</name>
+<email>gabriel@example.com</email>
+<review>I think The Revenant is, on the whole, pain without gain, but it's certainly a tour de force - literally, a feat of strength.</review>
+</revenant>
+
+<revenant>
+<name>Devin Haraci</name>
+<email>gabriel@example.com</email>
+<review>The Revenant is just the latest gorgeous, hollow and largely pointless work from a director who has convinced so many that his stark nudity is actually a sumptuous set of clothes.</review>
+</revenant>
+
+<revenant>
+<name>Stephen Rebello</name>
+<email>gabriel@example.com</email>
+<review>The Revenant is a stunning, impeccably made, hauntingly poetic western. It's also long, immersive, demanding, spooky and metaphysical.</review>
+</revenant>
+
+<item>
+<name>Gabriel Olariu</name>
+<email>gabriel@example.com</email>
+<review>I know half of you half as much as I would like, and I like half of you half as much as you deserve.</review>
+</item>
+
+</channel>
+</rss>

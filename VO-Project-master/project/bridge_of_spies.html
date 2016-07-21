@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Nosey Movie Reviews</title>
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="images/fav-icon.png" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!---start-click-drop-down-menu---->
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+        <!----start-dropdown-->
+         <script type="text/javascript">
+			var $ = jQuery.noConflict();
+				$(function() {
+					$('#activator').click(function(){
+						$('#box').animate({'top':'0px'},500);
+					});
+					$('#boxclose').click(function(){
+					$('#box').animate({'top':'-700px'},500);
+					});
+				});
+				$(document).ready(function(){
+				//Hide (Collapse) the toggle containers on load
+				$(".toggle_container").hide(); 
+				//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+				$(".trigger").click(function(){
+					$(this).toggleClass("active").next().slideToggle("slow");
+						return false; //Prevent the browser jump to the link anchor
+				});
+									
+			});
+		</script>
+        <!----//End-dropdown--->
+	</head>
+	<body>
+		<!---start-wrap---->
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="index.html"><img src="images/39-Logos.png" title="Nosey Movie Reviews" /></a>
+				</div>
+				<div class="nav-icon">
+					 <a href="#" class="right_bt" id="activator"><span> </span> </a>
+				</div>
+				 <div class="box" id="box">
+					 <div class="box_content">        					                         
+						<div class="box_content_center">
+						 	<div class="form_content">
+								<div class="menu_box_list">
+									<ul>
+										<li><a href="index.html"><span>home</span></a></li>
+										<li><a href="#"><span>Movie List</span></a></li>
+										<li><a href="#"><span>about</span></a></li>
+										<li><a href="contact.html"><span>Contact</span></a></li>
+										<div class="clear"> </div>
+									</ul>
+								</div>
+								<a class="boxclose" id="boxclose"> <span> </span></a>
+							</div>                                  
+						</div> 	
+					</div> 
+				</div>       	  
+							<div class="top-searchbar">
+					<form action="http://www.rottentomatoes.com/search/" target="_blank">
+		                <input id="autocomplete" type="text" placeholder="Movie name" name="search"><input type="submit" value="" />
+		                <span class="loading"></span>
+	                </form>
+	   	<script>
+		/*
+		 * jQuery UI Autocomplete: Custom HTML in Dropdown
+		 * http://salman-w.blogspot.com/2013/12/jquery-ui-autocomplete-examples.html
+		 */
+		$(function() {
+			$("#autocomplete").autocomplete({
+				delay: 500,
+				minLength: 3,
+				source: function(request, response) {
+					$.getJSON("http://api.rottentomatoes.com/api/public/v1.0/movies.json?callback=?", {
+						// do not copy the api key; get your own at developer.rottentomatoes.com
+						apikey: "a63f02343a64b09623576785234aa40a",
+						q: request.term,
+						page_limit: 10
+					}, function(data) {
+						// data is an array of objects and must be transformed for autocomplete to use
+						var array = data.error ? [] : $.map(data.movies, function(m) {
+							return {
+								label: m.title,
+								year: m.year,
+								cast: m.abridged_cast.slice(0, 3).map(function(a) { return a.name; }).join(", "),
+								rating: m.ratings.critics_score === -1 ? null : m.ratings.critics_score,
+								icon: m.ratings.critics_score === -1 ? null : m.ratings.critics_rating.toLowerCase().replace(/\s/g, "_"),
+								url: m.links.alternate
+							};
+						});
+						response(array);
+					});
+				},
+				focus: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+				},
+				select: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+					// navigate to the selected item's url
+					window.open(ui.item.url);
+				}
+			}).data("ui-autocomplete")._renderItem = function(ul, item) {
+				var $a = $("<a></a>");
+				$("<span class='m-year'></span>").text(item.year).appendTo($a);
+				$("<span class='m-name'></span>").text(item.label).appendTo($a);
+				$("<span class='m-cast'></span>").text(item.cast).appendTo($a);
+				if (item.rating && item.icon) {
+					var $tm = $("<span class='rt-main'>Rotten Tomatoes<sup>&reg;</sup> Score<br>Tomatometer<sup>&reg;</sup><br></span>").appendTo($a);
+					$("<span class='rt-ico'></span>").addClass(item.icon).appendTo($tm);
+					$("<span class='rt-val'></span>").text(item.rating + "%").appendTo($tm);
+					$("<span class='rt-bar'></span>").addClass(item.icon).appendTo($tm).append("<span style='width: " + item.rating + "%;'></span>");
+				}
+				return $("<li></li>").append($a).appendTo(ul);
+			};
+		});
+	</script>
+				</div>
+				<div class="userinfo">
+					<div class="user">
+						<ul>
+							<li><a href="#"><img src="images/user-pic.png" title="user-name" /><span>User Login</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---//End-header---->
+		<!---start-content---->
+		<div class="content">
+			<div class="wrap">
+			<div class="single-page">
+							<div class="single-page-artical">
+								<div class="artical-content">
+									<img src="images/bridge_of_spies_main.jpg" title="banner1">
+									<h3>BRIDGE OF SPIES (2015)<a href="#"></a></h3>
+									<p>Tom Hanks stars as the American attorney tasked with negotiating the release of a U-2 spy plane pilot who was shot down over Russia at the height of the Cold War in this historical drama from DreamWorks Studios. Steven Spielberg and Mark E. Platt produce a film written by Matt Charman. ~ Jason Buchanan, Rovi </p>
+									<p class="para2"></p> 
+								    </div>
+								    <div class="artical-links">
+		  						 	<ul>
+
+		  						 		<li><button onclick="commFunction()"><img src="images/blog-icon4.png" title="Lables"><span>View User Comments</span></button></li>
+		  						 	</ul>
+		  						 </div>
+		  						 <div class="share-artical">
+		  						 	<ul>
+		  						 		<li><a href="#"><img src="images/facebooks.png" title="facebook">Facebook</a></li>
+		  						 		<li><a href="#"><img src="images/twiter.png" title="Twitter">Twiiter</a></li>
+		  						 		<li><a href="#"><img src="images/google+.png" title="google+">Google+</a></li>
+		  						 		<li><a href="#"><img src="images/rss.png" title="rss">Rss</a></li>
+		  						 	</ul>
+		  						 </div>
+		  						 <div class="clear"> </div>
+							</div>
+							<!---start-comments-section-->
+							<div class="comment-section">
+				<div class="grids_of_2">
+					<h2>User Comments</h2>
+				    
+					<div id="result">Click on User Comments to see more reviews from our users. </div>
+
+                   <script type="text/javascript">
+                     function commFunction() {
+                      function ajaxRequest(){
+                      var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"]; //activeX versions to check for in IE
+                      if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
+                      for (var i=0; i<activexmodes.length; i++){
+                         try{
+                           return new ActiveXObject(activexmodes[i])
+                             }
+                           catch(e){
+                            //suppress error
+                                }
+                             }
+                            }
+                         else if (window.XMLHttpRequest) // if Mozilla, Safari etc
+                         return new XMLHttpRequest();
+                         else
+                         return false;
+                          }
+
+                        var mygetrequest=new ajaxRequest();
+                       if (mygetrequest.overrideMimeType)
+                            mygetrequest.overrideMimeType('text/xml');
+                          mygetrequest.onreadystatechange=function(){
+                       if (mygetrequest.readyState==4){
+                      if (mygetrequest.status==200 || window.location.href.indexOf("http")==-1){
+                      var xmldata=mygetrequest.responseXML; //retrieve result as an XML object
+                      var rssentries=xmldata.getElementsByTagName("bridgeOfSpies");
+                      var output='<table height="100px" style="border:1px solid;">';
+                      for (var i=0; i<rssentries.length; i++){
+                      output+='<tr>';
+                       output+='<td width="65" style="border: 1px solid black; padding:15px; text-align:left;">'+rssentries[i].getElementsByTagName('name')[0].firstChild.nodeValue+'</td>';
+                      output+='<td style="border: 1px solid black; padding:25px; text-align:left;">'+rssentries[i].getElementsByTagName('review')[0].firstChild.nodeValue+'</td>';
+                      output+='</tr>';
+                       }
+                      output+='</table>';
+                      document.getElementById("result").innerHTML=output;
+                       }
+                       else{
+                       alert("An error has occured making the request");
+                     }
+                    }
+                   };
+
+                   mygetrequest.open("GET", "comments.xml", true);
+                   mygetrequest.send(null);
+                  }
+                  </script>
+					<div class="grid1_of_2">
+						<div class="grid_img">
+							
+						</div>
+						<div class="grid_text">
+						
+							<p class="para top"> </p>
+							<a href="" class="btn1">Click to Reply</a>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="grid1_of_2 left">
+						<div class="grid_img">
+							<a href=""><img src="images/bridge_spies_review1.jpg" alt=""></a>
+						</div>
+						<div class="grid_text">
+							<h4 class="style1 list"><a href="#">Ed Whitfield</a></h4>
+							<h3 class="style"> November 10, 2015</h3>
+							<p class="para top">A movie that bets the house on the interplay between an all-American archetype and a reserved, fragile looking traitor who walks and sounds like a bank clerk. That's not enough in a film built on legal conversation.</p>
+							<a href="http://www.theoohtray.com/2015/12/04/film-review-bridge-of-spies/" class="btn1">The Ooh Tray</a>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="grid1_of_2">
+						<div class="grid_img">
+							<a href=""><img src="images/bridge_spies_review2.gif" alt=""></a>
+						</div>
+						<div class="grid_text">
+							<h4 class="style1 list"><a href="#">Michael A. Smith</a></h4>
+							<h3 class="style">December 10, 2015</h3>
+							<p class="para top">The second collaboration between Steven Spielberg and Joel and Ethan Coen, who co-wrote the script with Matt Charman, "Bridge of Spies" jumps to the top of my "Best Film of the Year" list.</p>
+							<a href="http://www.mediamikes.com/2015/10/film-review-bridge-of-spies/" class="btn1">MediaMikes</a>
+						</div>
+						<div class="clear"></div>
+					</div>								
+						<div class="artical-commentbox">
+						 	<h2>Leave a Comment</h2>
+				  			<div class="table-form">
+								<form action="#" method="post" name="post_comment">
+									<div>
+										<label>Name<span>*</span></label>
+										<input type="text" value=" ">
+									</div>
+									<div>
+										<label>Email<span>*</span></label>
+										<input type="text" value=" ">
+									</div>
+									<div>
+										<label>Your Comment<span>*</span></label>
+										<textarea> </textarea>	
+									</div>
+								</form>
+								<input type="submit" value="submit">
+									
+							</div>
+							<div class="clear"> </div>
+				  		</div>			
+					</div>
+			</div>
+							<!---//End-comments-section--->
+						</div>
+						 </div>
+		</div>
+		<!----start-footer--->
+		<div class="footer">
+
+		</div>
+		<!----//End-footer--->
+		<!---//End-wrap---->
+	</body>
+</html>
+

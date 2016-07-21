@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Nosey Movie Reviews</title>
+		<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type"/>
+
+<title>NoSer teaM</title>
+
+<script type="text/javascript" src="js/jquery-1.2.6.min.js"></script>
+
+<script type="text/javascript">
+
+function slideSwitch() {
+    var $active = $('#slideshow DIV.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow DIV:last');
+
+    // use this to pull the divs in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow DIV:first');
+
+    // uncomment below to pull the divs randomly
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 1000, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 5000 );
+});
+
+</script>
+
+<style type="text/css">
+
+/*** set the width and height to match your images **/
+
+#slideshow {
+    position:relative;
+    height:400px;
+}
+
+#slideshow DIV {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:8;
+    opacity:0.0;
+    height: 400px;
+    background-color: #FFF;
+}
+
+#slideshow DIV.active {
+    z-index:10;
+    opacity:1.0;
+}
+
+#slideshow DIV.last-active {
+    z-index:9;
+}
+
+#slideshow DIV IMG {
+    height: 350px;
+    display: block;
+    border: 0;
+    margin-bottom: 10px;
+}
+
+</style>
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="styleS.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" type="image/x-icon" href="images/fav-icon.png" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!---start-click-drop-down-menu---->
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+        <!----start-dropdown-->
+         <script type="text/javascript">
+			var $ = jQuery.noConflict();
+				$(function() {
+					$('#activator').click(function(){
+						$('#box').animate({'top':'0px'},500);
+					});
+					$('#boxclose').click(function(){
+					$('#box').animate({'top':'-700px'},500);
+					});
+				});
+				$(document).ready(function(){
+				//Hide (Collapse) the toggle containers on load
+				$(".toggle_container").hide(); 
+				//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+				$(".trigger").click(function(){
+					$(this).toggleClass("active").next().slideToggle("slow");
+						return false; //Prevent the browser jump to the link anchor
+				});
+									
+			});
+		</script>
+        <!----//End-dropdown--->
+	</head>
+	<body style="font-family: Arial, Sans-serif, sans;">
+		<!---start-wrap---->
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="index.html"><img src="images/39-Logos.png" title="Nosey Movie Reviews" /></a>
+				</div>
+				<div class="nav-icon">
+					 <a href="#" class="right_bt" id="activator"><span> </span> </a>
+				</div>
+				 <div class="box" id="box">
+					 <div class="box_content">        					                         
+						<div class="box_content_center">
+						 	<div class="form_content">
+								<div class="menu_box_list">
+									<ul>
+										<li><a href="index.html"><span>home</span></a></li>
+										<li><a href="movie_list.html"><span>Movie List</span></a>
+										<li><a href="about.html"><span>About</span></a></li>
+										<li><a href="contact.html"><span>Contact</span></a></li>
+										<div class="clear"> </div>
+									</ul>
+								</div>
+								<a class="boxclose" id="boxclose"> <span> </span></a>
+							</div>                                  
+						</div> 	
+					</div> 
+				</div>       	  
+							<div class="top-searchbar">
+					<form action="http://www.rottentomatoes.com/search/" target="_blank">
+		                <input id="autocomplete" type="text" placeholder="Movie name" name="search"><input type="submit" value="" />
+		                <span class="loading"></span>
+	                </form>
+	   	<script>
+		/*
+		 * jQuery UI Autocomplete: Custom HTML in Dropdown
+		 * http://salman-w.blogspot.com/2013/12/jquery-ui-autocomplete-examples.html
+		 */
+		$(function() {
+			$("#autocomplete").autocomplete({
+				delay: 500,
+				minLength: 3,
+				source: function(request, response) {
+					$.getJSON("http://api.rottentomatoes.com/api/public/v1.0/movies.json?callback=?", {
+						// do not copy the api key; get your own at developer.rottentomatoes.com
+						apikey: "a63f02343a64b09623576785234aa40a",
+						q: request.term,
+						page_limit: 10
+					}, function(data) {
+						// data is an array of objects and must be transformed for autocomplete to use
+						var array = data.error ? [] : $.map(data.movies, function(m) {
+							return {
+								label: m.title,
+								year: m.year,
+								cast: m.abridged_cast.slice(0, 3).map(function(a) { return a.name; }).join(", "),
+								rating: m.ratings.critics_score === -1 ? null : m.ratings.critics_score,
+								icon: m.ratings.critics_score === -1 ? null : m.ratings.critics_rating.toLowerCase().replace(/\s/g, "_"),
+								url: m.links.alternate
+							};
+						});
+						response(array);
+					});
+				},
+				focus: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+				},
+				select: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+					// navigate to the selected item's url
+					window.open(ui.item.url);
+				}
+			}).data("ui-autocomplete")._renderItem = function(ul, item) {
+				var $a = $("<a></a>");
+				$("<span class='m-year'></span>").text(item.year).appendTo($a);
+				$("<span class='m-name'></span>").text(item.label).appendTo($a);
+				$("<span class='m-cast'></span>").text(item.cast).appendTo($a);
+				if (item.rating && item.icon) {
+					var $tm = $("<span class='rt-main'>Rotten Tomatoes<sup>&reg;</sup> Score<br>Tomatometer<sup>&reg;</sup><br></span>").appendTo($a);
+					$("<span class='rt-ico'></span>").addClass(item.icon).appendTo($tm);
+					$("<span class='rt-val'></span>").text(item.rating + "%").appendTo($tm);
+					$("<span class='rt-bar'></span>").addClass(item.icon).appendTo($tm).append("<span style='width: " + item.rating + "%;'></span>");
+				}
+				return $("<li></li>").append($a).appendTo(ul);
+			};
+		});
+	</script>
+				</div>
+				<div class="userinfo">
+					<div class="user">
+						<ul>
+							<li><a href="#"><img src="images/user-pic.png" title="user-name" /><span>User Login</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---//End-header---->
+		<!---start-content---->
+		<div class="content">
+			<div class="wrap">
+			<div class="single-page">
+							<div class="single-page-artical">
+						
+		 <!-- ####################################################################################################### -->
+      <h1>Web team NoSer</h1>
+<h2>Contact us <a href="contact.html">NoSer-WEB</a></h2>
+
+<div id="slideshow">
+    <div class="active">
+        <a href="about_RalphCroly.html"><img src="images/2-.jpg" alt="Slideshow Image 1" /></a>
+         click Image for details Ralph Croly
+    </div>
+    
+    <div>
+        <a href="about_DanStuart.html"><img src="images/3-.jpg" alt="Slideshow Image 2" /></a>
+        click Image for details Dan Stuart
+    </div>
+    
+    <div>
+        <a href="about_judyJohnason.html"><img src="images/1-.jpg" alt="Slideshow Image 3" /></a>
+        Ralph Croly
+    </div>
+    
+    <div>
+        <a href="contact.html"><img src="images/11.jpg" alt="Slideshow Image 4" /></a>
+        Contact Us!
+    </div>
+    
+</div>
+
+<p>For more info visit <a href="Movie_list.html"> NoSer Movie list</a></p>
+
+<p> This is ! <a href="index.html">Home</a> !
+</p>
+      <!-- ####################################################################################################### -->
+									<h3>WHAT IS THE NOSER MOVIE REVIEWS<a href="#"></a></h3>
+									<p>The NOSER rating represents the percentage of professional critic reviews that are positive for a given film or television show. Working collaboratively with Rotten Tomatoes</p>
+									<p class="para2"></p> 
+								    </div>
+								    <div class="artical-links">
+		  						 	<ul>
+
+		  						 		<li><button onclick="commFunction()"><img src="images/blog-icon4.png" title="Lables"><span>View Movies</span></button></li>
+		  						 		<li><button onclick="commFunction()"><img src="images/blog-icon4.png" title="Lables"><span> Help</span></button></li>
+		  						 	
+		  						 	</ul>
+		  						 	
+		  						 </div>
+		  						 <div class="share-artical">
+		  						 	<ul>
+		  						 		<li><a href="#"><img src="images/facebooks.png" title="facebook">Facebook</a></li>
+		  						 		<li><a href="#"><img src="images/twiter.png" title="Twitter">Twiiter</a></li>
+		  						 		<li><a href="#"><img src="images/google+.png" title="google+">Google+</a></li>
+		  						 		<li><a href="#"><img src="images/rss.png" title="rss">Rss</a></li>
+		  						 	</ul>
+		  						 </div>
+		  						 <div class="clear"> </div>
+							</div>
+						</div>
+						 </div>
+		</div>
+		<!----start-footer--->
+		<div class="footer">
+
+		</div>
+		<!----//End-footer--->
+		<!---//End-wrap---->
+	</body>
+</html>
+
