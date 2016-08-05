@@ -42,4 +42,16 @@
 		<Comments>true</Comments>
 		<Genre>some folm</Genre>
 	</movie>
+	<movie>
+		<User_code>V</User_code>
+		<Movie_Name>A</Movie_Name>
+		<Comments>L</Comments>
+		<Genre>I</Genre>
+	</movie>
+	<movie>
+		<User_code>Valeriu </User_code>
+		<Movie_Name>Computer science </Movie_Name>
+		<Comments>Doing a course at National College of Ireland it&apos;s has been a excellent decision based on the teacher&apos;s and facilities around college. </Comments>
+		<Genre>2</Genre>
+	</movie>
 </movies>

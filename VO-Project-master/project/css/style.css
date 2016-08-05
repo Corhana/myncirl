@@ -26,7 +26,8 @@ body{
 	background:#F0EFEE;
 }
 .content{
-		background:#7E8F7C;
+		  background:#ffffff; 
+		/*background:#7E8F7C;*/
 }
 /*---start-wrap----*/
 .wrap{
@@ -36,7 +37,7 @@ body{
 /*---start-header----*/
 .header{
 	background:url(../images/border.png) repeat-x 0px 0px #FFF;
-	background:#C63D0F;
+	background:#ffffff;
 	padding: 1.5em 0 1.2em;
 	border-bottom: 1px solid rgba(214, 213, 212, 0.64);
 	position: fixed;
