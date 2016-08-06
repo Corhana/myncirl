@@ -1,0 +1,8 @@
+<div style="max-width:700px;min-width:200px;">
+	<h2>Who is the course for?</h2>
+	<p>
+		<a href="javascript:jQuery.fancybox.close();">Close</a>
+	</p>
+	<p> This course is aimed primarily at individuals seeking an academic qualification at postgraduate level while also wishing to advance their career to assume positions at a senior management level with a specific focus on human resource management.</p>
+
+</div>

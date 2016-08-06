@@ -1,0 +1,10 @@
+<div style="max-width:700px;min-width:200px;">
+	<h1>Indicative Schedule</h1>
+	<p>
+		<a href="javascript:jQuery.fancybox.close();">Close</a>
+	</p>
+	
+<p>Tuesday and Thursday 18.00 - 21.00 plus 2 full Saturdays per semester 10.00 - 17.00.</p>
+<p>Duration</p>
+<p>1 calendar year; 39 weeks, 3 taught semesters September to end of July.</p>
+</div>

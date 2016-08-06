@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>National College of Ireland</title>
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="images/nciLogo.png" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!---start-click-drop-down-menu---->
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+        <!----start-dropdown-->
+         <script type="text/javascript">
+			var $ = jQuery.noConflict();
+				$(function() {
+					$('#activator').click(function(){
+						$('#box').animate({'top':'0px'},500);
+					});
+					$('#boxclose').click(function(){
+					$('#box').animate({'top':'-700px'},500);
+					});
+				});
+				$(document).ready(function(){
+				//Hide (Collapse) the toggle containers on load
+				$(".toggle_container").hide(); 
+				//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+				$(".trigger").click(function(){
+					$(this).toggleClass("active").next().slideToggle("slow");
+						return false; //Prevent the browser jump to the link anchor
+				});
+									
+			});
+		</script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="../lib/jquery.mousewheel.pack.js?v=3.1.3"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="../source/jquery.fancybox.pack.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="../source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+        <!----//End-dropdown--->
+	</head>
+	<body>
+		<!---start-wrap---->
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="index.html"><img src="images/nciLogo.png" title="Nosey Movie Reviews" /></a>
+				</div>
+				<div class="nav-icon">
+					 <a href="#" class="right_bt" id="activator"><span> </span> </a>
+				</div>
+				 <div class="box" id="box">
+					 <div class="box_content">        					                         
+						<div class="box_content_center">
+						 	<div class="form_content">
+								<div class="menu_box_list">
+									<ul>
+										<li><a href="index.html"><span>home</span></a></li>
+										<li><a href="Courses.html"><span>Courses</span></a></li>
+										<li><a href="about.html"><span>Library</span></a></li>
+										<li><a href="contact.html"><span>Contact</span></a></li>
+										<div class="clear"> </div>
+									</ul>
+								</div>
+								<a class="boxclose" id="boxclose"> <span> </span></a>
+							</div>                                  
+						</div> 	
+					</div> 
+				</div>       	  
+							<div class="top-searchbar">
+					<form action="https://www.ncirl.ie/Search-Results?Search=dad" target="_blank">
+		                <input id="autocomplete" type="text" placeholder="Courses Name" name="search"><input type="submit" value="" />
+		                <span class="loading"></span>
+	                </form>
+	   	<script>
+		/*
+		 * jQuery UI Autocomplete: Custom HTML in Dropdown
+		 * http://salman-w.blogspot.com/2013/12/jquery-ui-autocomplete-examples.html
+		 */
+		$(function() {
+			$("#autocomplete").autocomplete({
+				delay: 500,
+				minLength: 3,
+				source: function(request, response) {
+					$.getJSON("http://api.rottentomatoes.com/api/public/v1.0/movies.json?callback=?", {
+						// do not copy the api key; get your own at developer.rottentomatoes.com
+						apikey: "a63f02343a64b09623576785234aa40a",
+						q: request.term,
+						page_limit: 10
+					}, function(data) {
+						// data is an array of objects and must be transformed for autocomplete to use
+						var array = data.error ? [] : $.map(data.movies, function(m) {
+							return {
+								label: m.title,
+								year: m.year,
+								cast: m.abridged_cast.slice(0, 3).map(function(a) { return a.name; }).join(", "),
+								rating: m.ratings.critics_score === -1 ? null : m.ratings.critics_score,
+								icon: m.ratings.critics_score === -1 ? null : m.ratings.critics_rating.toLowerCase().replace(/\s/g, "_"),
+								url: m.links.alternate
+							};
+						});
+						response(array);
+					});
+				},
+				focus: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+				},
+				select: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+					// navigate to the selected item's url
+					window.open(ui.item.url);
+				}
+			}).data("ui-autocomplete")._renderItem = function(ul, item) {
+				var $a = $("<a></a>");
+				$("<span class='m-year'></span>").text(item.year).appendTo($a);
+				$("<span class='m-name'></span>").text(item.label).appendTo($a);
+				$("<span class='m-cast'></span>").text(item.cast).appendTo($a);
+				if (item.rating && item.icon) {
+					var $tm = $("<span class='rt-main'>Rotten Tomatoes<sup>&reg;</sup> Score<br>Tomatometer<sup>&reg;</sup><br></span>").appendTo($a);
+					$("<span class='rt-ico'></span>").addClass(item.icon).appendTo($tm);
+					$("<span class='rt-val'></span>").text(item.rating + "%").appendTo($tm);
+					$("<span class='rt-bar'></span>").addClass(item.icon).appendTo($tm).append("<span style='width: " + item.rating + "%;'></span>");
+				}
+				return $("<li></li>").append($a).appendTo(ul);
+			};
+		});
+	</script>
+				</div>
+				<div class="userinfo">
+					<div class="user">
+						<ul>
+							<li><a href="#"><img src="images/user-pic.png" title="user-name" /><span>User Login</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---//End-header---->
+		<!---start-content---->
+		<div class="content">
+			<div class="wrap">
+			<div class="single-page">
+							<div class="single-page-artical">
+								<div class="artical-content">
+									<img src="images/imag1s.jpg" title="banner1">
+									<h3>Master of Business Administration<a href="#"></a></h3>
+									<p>The MBA course will provide you with a strong theoretical foundation in the broader disciplines of management as well as focusing on the practical application of theory in real-world settings and cases. You will be exposed to the latest thinking in the core disciplines of enterprise, leadership, management organisation, people management, strategy, management of financial resources and economics for managers.</p>
+										<ul>
+										<li><a class="fancybox fancybox.iframe" href="FancyBox/MARK/C1.html">About this Course</a></li>
+										<li><a href="http://courses.ncirl.ie/index.cfm/page/course/coursecode/MBA">Course Content</a></li>
+										<li><a class="fancybox fancybox.iframe" href="FancyBox/MARK/C2.html">Award and Progression</a></li>
+										<li><a class="fancybox fancybox.iframe" href="FancyBox/MARK/C3.html">Entry Requirements</a></li>
+										<li><a class="fancybox fancybox.iframe" href="FancyBox/MARK/C4.html">Indicative Schedule</a></li>
+										<li><a class="fancybox fancybox.iframe" href="FancyBox/MARK/C5.html">MBA Lecturer Profiles</a></li>
+										<li><a href="https://www.ncirl.ie/Events/eventid/195">MBA Taster Event</a></li>
+									</ul>
+										<table>
+									  <tr>
+									    <th>Description:</th>
+									    <th>Master of Business Administration</th>
+									  </tr>
+									  <tr>
+									    <td>Location:</td>
+									    <td>IFSC Campus</td>
+									  </tr>
+									  <tr>
+									    <td>Duration:</td>
+									    <td>2 years</td>
+									  </tr>
+									  <tr>
+									    <td>NFQ Level:</td>
+									    <td>Masters</td>
+									  </tr>
+									  <tr>
+									  	<td>Brochure:</td>
+									    <td><a href="https://oracleweb.ncirl.ie/pls/opencampus/solar.solar_course_info.get_marketing_document?p_id=503918027">Download Master of Business Administration brochure</a></td>
+									  </tr>
+									</table>
+									
+									<p class="para2"></p> 
+								    </div>
+								    <div class="artical-links">
+		  						 	<ul>
+
+		  						 		<li><button onclick="commFunction()"><img src="images/blog-icon4.png" title="Lables"><span>View User Comments</span></button></li>
+		  						 	</ul>
+		  						 </div>
+		  						 <div class="share-artical">
+		  						 	<ul>
+		  						 		<li><a href="http://www.facebook.com/NCIRL"><img src="images/facebooks.png" title="facebook">Facebook</a></li>
+		  						 		<li><a href="https://twitter.com/NCIRL"><img src="images/twiter.png" title="Twitter">Twiiter</a></li>
+		  						 		<li><a href="//s2.googleusercontent.com/s2/favicons?domain_url=https%3A%2F%2Fplus.google.com%2F106737371557563712295%23106737371557563712295%2Fposts&feature=youtube_channel"><img src="images/google+.png" title="google+">Google+</a></li>
+		  						 		<li><a href="http://www.linkedin.com/company/national-college-of-ireland"><img src="images/rss.png" title="rss">Rss</a></li>
+		  						 	</ul>
+		  						 </div>
+		  						 <div class="clear"> </div>
+							</div>
+							<!---start-comments-section-->
+							<div class="comment-section">
+				<div class="grids_of_2">
+					<h2>User Comments</h2>
+				    
+					<div id="result">Click on User Comments to see more reviews from our users. </div>
+
+                   <script type="text/javascript">
+                     function commFunction() {
+                      function ajaxRequest(){
+                      var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"]; //activeX versions to check for in IE
+                      if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
+                      for (var i=0; i<activexmodes.length; i++){
+                         try{
+                           return new ActiveXObject(activexmodes[i])
+                             }
+                           catch(e){
+                            //suppress error
+                                }
+                             }
+                            }
+                         else if (window.XMLHttpRequest) // if Mozilla, Safari etc
+                         return new XMLHttpRequest();
+                         else
+                         return false;
+                          }
+
+                        var mygetrequest=new ajaxRequest();
+                       if (mygetrequest.overrideMimeType)
+                            mygetrequest.overrideMimeType('text/xml');
+                          mygetrequest.onreadystatechange=function(){
+                       if (mygetrequest.readyState==4){
+                      if (mygetrequest.status==200 || window.location.href.indexOf("http")==-1){
+                      var xmldata=mygetrequest.responseXML; //retrieve result as an XML object
+                      var rssentries=xmldata.getElementsByTagName("manfromuncle");
+                      var output='<table height="100px" style="border:1px solid;">';
+                      for (var i=0; i<rssentries.length; i++){
+                      output+='<tr>';
+                       output+='<td width="65" style="border: 1px solid black; padding:15px; text-align:left;">'+rssentries[i].getElementsByTagName('name')[0].firstChild.nodeValue+'</td>';
+                      output+='<td style="border: 1px solid black; padding:25px; text-align:left;">'+rssentries[i].getElementsByTagName('review')[0].firstChild.nodeValue+'</td>';
+                      output+='</tr>';
+                       }
+                      output+='</table>';
+                      document.getElementById("result").innerHTML=output;
+                       }
+                       else{
+                       alert("An error has occured making the request");
+                     }
+                    }
+                   };
+
+                   mygetrequest.open("GET", "comments.xml", true);
+                   mygetrequest.send(null);
+                  }
+                  </script>
+					<div class="grid1_of_2">
+						<div class="grid_img">
+							
+						</div>
+						<div class="grid_text">
+						
+							<p class="para top"> </p>
+							<a href="" class="btn1">Click to Reply</a>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="grid1_of_2 left">
+						<div class="grid_img">
+							<a href=""><img src="images/uncle_man_review1.jpg" alt=""></a>
+						</div>
+						<div class="grid_text">
+							<h4 class="style1 list"><a href="#">Blake Howard</a></h4>
+							<h3 class="style"> November 10, 2015</h3>
+							<p class="para top">The Man from U.N.C.L.E has some flaws, a dash of predictability and some questionable plot turns; but everyone involved brims with how much they're having.</p>
+							<a href="http://www.graffitiwithpunctuation.net/2015/10/26/the-man-from-u-n-c-l-e-guy-ritchie-2015-movie-review/" class="btn1">Graffiti With Punctuation</a>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="grid1_of_2">
+						<div class="grid_img">
+							<a href=""><img src="images/uncle_man_review2.gif" alt=""></a>
+						</div>
+						<div class="grid_text">
+							<h4 class="style1 list"><a href="#">Jay Stone</a></h4>
+							<h3 class="style">December 10, 2015</h3>
+							<p class="para top">It's partly second-rate Bond and partly second-rate Mission Impossible: something to fill the time during the long months before the fall movie season.</p>
+							<a href="http://ex-press.ca/movie-review-a-reason-to-cry-u-n-c-l-e/" class="btn1">Ex-Press.com</a>
+						</div>
+						<div class="clear"></div>
+					</div>								
+						<div class="artical-commentbox">
+						 	<h2>Leave a Comment</h2>
+				  			<div class="table-form">
+								<form action="#" method="post" name="post_comment">
+									<div>
+										<label>Name<span>*</span></label>
+										<input type="text" value=" ">
+									</div>
+									<div>
+										<label>Email<span>*</span></label>
+										<input type="text" value=" ">
+									</div>
+									<div>
+										<label>Your Comment<span>*</span></label>
+										<textarea> </textarea>	
+									</div>
+								</form>
+								<input type="submit" value="submit">
+									
+							</div>
+							<div class="clear"> </div>
+				  		</div>			
+					</div>
+			</div>
+							<!---//End-comments-section--->
+						</div>
+						 </div>
+		</div>
+		<!----start-footer--->
+		<div class="footer">
+
+		</div>
+		<!----//End-footer--->
+		<!---//End-wrap---->
+	</body>
+</html>
+

@@ -1,0 +1,14 @@
+<div style="max-width:700px;min-width:200px;">
+	<h1>About this Course</h1>
+	<p>
+		<a href="javascript:jQuery.fancybox.close();">Close</a>
+	</p>
+	
+<ul>
+  <li>This intensive course has been developed in consultation with the Chartered Institute of Personnel and Development (CIPD). The programme aims to develop an in-depth understanding of the core disciplines in the area of human resources (HR). It recognises that HR must operate in challenging and dynamic business environments that are constantly changing and seeks to enable students to deliver effective business solutions that optimise the people resources of their organisation.</li>
+  <li>* </li>
+  <li>Combined with a practitioner recognised qualification in the area of HRM, namely CIPD, this course is geared towards people wishing to continue or progress in their professional development in HR or wider roles in the organisation.</li>
+  <li>* </li>
+  <li>Block teaching is used to provide the opportunity for more in-depth development of knowledge within modules. An applied approach to teaching is used within the programme with lectures interspersed with exercises, use of case study analysis, group activities in class, debate on contemporary issues as well as independent learning.</li>
+</ul>
+</div>

@@ -1,0 +1,8 @@
+<div style="max-width:700px;min-width:200px;">
+	<h1>Award and Progression</h1>
+	<p>
+		<a href="javascript:jQuery.fancybox.close();">Close</a>
+	</p>
+	
+<p>The Postgraduate Diploma in Arts in Human Resource Management is awarded by QQI at level 9 on the National Framework of Qualifications. Graduates with relevant work experience will be eligible to apply for Chartered Membership of the Chartered Institute of Personnel and Development (CIPD) for which a membership fee will be payable directly to CIPD. Students who successfully complete the Postgraduate Diploma in Arts in HRM have the option of continuing their studies to receive the award of Master of Arts in HRM. </p>
+</div>

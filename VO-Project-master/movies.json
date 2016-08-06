@@ -53,6 +53,18 @@
             "Movie_Name": "Computer science ",
             "Comments": "Doing a course at National College of Ireland it's has been a excellent decision based on the teacher's and facilities around college. ",
             "Genre": "2"
+        },
+        {
+            "User_code": "Janie Henderson",
+            "Movie_Name": "General",
+            "Comments": "NCI is a great college, I studied here part-time and it was very handy to get to class after work as it's right in the centre of Dublin, I just hopped on the LUAS. Love the area, nice and buzzy and loads of places nearby to grab food or a coffee too. Everyone in my class got on great, shared notes and study tips and made good friends. Lecturers were v good, notes always available online and felt like they were always available over email or phone or for a chat after class.",
+            "Genre": "5"
+        },
+        {
+            "User_code": "Annie Japaud",
+            "Movie_Name": "Web Development ",
+            "Comments": "I took a 6 month intensive online course in Web Development and it was a fantastic experience. Our teacher Sam was absolutely great and I passed and graduated thanks to him. I met some friends I still keep in touch with and I would go black for more if I could.",
+            "Genre": "5"
         }
     ]
 }

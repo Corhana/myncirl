@@ -1,0 +1,8 @@
+<div style="max-width:700px;min-width:200px;">
+	<h1>Entry Requirements</h1>
+	<p>
+		<a href="javascript:jQuery.fancybox.close();">Close</a>
+	</p>
+	
+<p>Applicants are required to hold a minimum of a 2.2 honours degree in either a cognate or non-cognate area at level 8 on the National Framework of Qualifications. The college operates a Recognition of Prior Experiential Learning (RPEL) scheme meaning non-graduates with extensive professional experience and other prior qualifications may also be considered for the course. </p>
+</div>

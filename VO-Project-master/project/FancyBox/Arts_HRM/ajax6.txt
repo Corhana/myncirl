@@ -1,0 +1,20 @@
+<div style="max-width:700px;min-width:200px;">
+	<h1>Course Fee</h1>
+	<p>
+		<a href="javascript:jQuery.fancybox.close();">Close</a>
+	</p>
+	
+<p>
+
+(Fees revised annually)
+
+You can spread the cost of this course with a direct debit plan.</p>
+<ul>
+  <li>€7,000 per annum.</li>
+  <li>* </li>
+  <li>(Fees revised annually)</li>
+  <li>* </li>
+  <li>You can spread the cost of this course with a direct debit plan.</li>
+</ul>
+
+</div>
