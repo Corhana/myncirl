@@ -1,4 +1,7 @@
-## Demo app to work with AJAX, JSON and XML files
+## My second year project redesigning NCIRL website
+
+
+Demo app to work with AJAX, JSON and XML files
 
 1. Install 'express', 'body-parser', 'fs' and 'js2xmlparser' before running the project
 
@@ -8,3 +11,5 @@
     $ npm install node_xslt
     
 3. Run your project by choosing Run > Run With > Node 0.10.x
+
+
