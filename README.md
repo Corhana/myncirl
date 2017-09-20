@@ -1,3 +1,3 @@
 # myncirl
 
-Second year project, developing a new National College of Ireland website.
+Second year project for Web Application Development. Developing a new version of National College of Ireland website.
